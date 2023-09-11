@@ -2,9 +2,7 @@ LOCAL_PATH := $(call my-dir)
 TA_UUID := d83c3c4a-9e8d-4e4e-ad30-9d40e137f689
 TA_SUFFIX := .ta
 
-ifeq ($(PLATFORM_TDK_VERSION), 38)
-
-	PLATFORM_TDK_PATH := $(BOARD_AML_VENDOR_PATH)/tdk_v3
+ifneq ($(filter $(PLATFORM_TDK_VERSION),38 318),)
 	ifeq ($(BOARD_AML_SOC_TYPE),)
 		LOCAL_TA := v3/signed/$(TA_UUID)$(TA_SUFFIX)
 	else
